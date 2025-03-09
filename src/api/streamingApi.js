@@ -7,7 +7,7 @@ const apiClient = axios.create({
   baseURL: `https://${API_HOST}`,
   headers: {
     "x-rapidapi-host": API_HOST,
-    "x-rapidapi-key": '1d7b35ce32msh5ba243875193f1ap172a00jsn1ee720c9cb52',
+    "x-rapidapi-key": API_KEY,
   },
 });
 
