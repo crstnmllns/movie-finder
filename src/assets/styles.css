@@ -1,0 +1,55 @@
+body {
+  background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
+}
+
+.d-flex {
+  max-width: 500px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.movie-card {
+  width: 100%;
+  max-width: 250px;
+  margin: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.movie-image {
+  height: 300px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.movie-title {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.movie-overview {
+  font-size: 0.9rem;
+  color: #555;
+  text-align: justify;
+  max-height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-genres, .movie-platforms {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+/* Estilos del botón de detalles */
+.btn-primary {
+  display: block;
+  margin: auto;
+  width: fit-content;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+}

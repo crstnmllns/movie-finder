@@ -1,6 +1,6 @@
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
-function SearchBar({ query, setQuery, onSearch }) {
+function SearchBar({ query, setQuery }) {
   return (
     <Form className="d-flex gap-2">
       <Form.Control
@@ -9,10 +9,8 @@ function SearchBar({ query, setQuery, onSearch }) {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
-      <Button onClick={onSearch} variant="primary">Buscar</Button>
     </Form>
   );
 }
 
 export default SearchBar;
-
