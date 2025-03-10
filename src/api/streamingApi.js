@@ -1,30 +1,49 @@
 import axios from "axios";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
-const API_HOST = import.meta.env.VITE_API_HOST;
+const BASE_URL = import.meta.env.VITE_API_HOST;
 
-const apiClient = axios.create({
-  baseURL: `https://${API_HOST}`,
-  headers: {
-    "x-rapidapi-host": API_HOST,
-    "x-rapidapi-key": API_KEY,
-  },
-});
-
-export const searchMovie = async (title, country = "cl", language = "es") => {
+export const searchMovie = async (query) => {
   try {
-    const response = await apiClient.get("shows/search/title", {
+    const response = await axios.get(`${BASE_URL}autocomplete-search/`, {
       params: {
-        title,
-        country,
-        show_type: "movie",
-        output_language: language,
+        apiKey: API_KEY,
+        search_value: query,
+        search_type: 1,
       },
     });
-
-    return response.data;
+    return response.data.results;
   } catch (error) {
     console.error("Error al obtener datos de la API", error);
+    return [];
+  }
+};
+
+export const getMovieDetails = async (id) => {
+  try {
+    const response = await axios.get(`${BASE_URL}title/${id}/details/`, {
+      params: {
+        apiKey: API_KEY,
+        append_to_response: "sources",
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener datos detallados de la API", error);
     return null;
+  }
+};
+
+export const getPlatforms = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}sources/`, {
+      params: {
+        apiKey: API_KEY,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener las plataformas", error);
+    return [];
   }
 };
