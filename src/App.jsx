@@ -25,7 +25,7 @@ function AppContent() {
   const handleSearch = useCallback(async () => {
     if (!query) return;
     if (location.pathname !== "/") {
-      navigate("/"); // Redirigir al listado si se está en MovieDetails
+      navigate("/");
     }
     const data = await searchMovie(query);
     if (Array.isArray(data) && data.length > 0) {
