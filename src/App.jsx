@@ -3,24 +3,37 @@ import { searchMovie } from "./api/streamingApi";
 import { Container } from "react-bootstrap";
 import SearchBar from "./components/SearchBar";
 import MovieList from "./components/MovieList";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import MovieDetails from "./components/MovieDetails";
 import ErrorBoundary from "./components/ErrorBoundary";
 import "./assets/styles.css";
 
 function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
+  );
+}
+
+function AppContent() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleSearch = useCallback(async () => {
     if (!query) return;
-    const data = await searchMovie(query, "cl", "es");
+    if (location.pathname !== "/") {
+      navigate("/"); // Redirigir al listado si se está en MovieDetails
+    }
+    const data = await searchMovie(query);
     if (Array.isArray(data) && data.length > 0) {
       setResults(data);
     } else {
       setResults([]);
     }
-  }, [query]);
+  }, [query, location.pathname, navigate]);
 
   useEffect(() => {
     if (query.length > 2) {
@@ -29,18 +42,16 @@ function App() {
   }, [query, handleSearch]);
 
   return (
-    <Router>
-      <Container className="mt-4">
-        <h1 className="text-center">Buscador de Películas</h1>
-        <SearchBar query={query} setQuery={setQuery} />
-        <ErrorBoundary>
-          <Routes>
-            <Route path="/" element={<MovieList movies={results} />} />
-            <Route path="/movie/:id" element={<MovieDetails />} />
-          </Routes>
-        </ErrorBoundary>
-      </Container>
-    </Router>
+    <Container className="mt-4">
+      <h1 className="text-center">Buscador de Películas</h1>
+      <SearchBar query={query} setQuery={setQuery} />
+      <ErrorBoundary>
+        <Routes>
+          <Route path="/" element={<MovieList movies={results} />} />
+          <Route path="/movie/:id" element={<MovieDetails />} />
+        </Routes>
+      </ErrorBoundary>
+    </Container>
   );
 }
 

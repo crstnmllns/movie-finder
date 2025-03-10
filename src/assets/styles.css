@@ -54,18 +54,11 @@ h1 {
   color: #ffcc00;
 }
 
-.movie-overview {
-  font-size: 0.9rem;
-  color: #bbbbbb;
-  text-align: justify;
-  max-height: 100px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.movie-genres, .movie-platforms {
+.movie-year {
   font-size: 0.85rem;
   color: #aaaaaa;
+  text-align: center;
+  margin-top: 5px;
 }
 
 .btn-primary {
@@ -87,7 +80,7 @@ h1 {
 }
 
 .movie-details {
-  max-width: 700px;
+  max-width: 900px;
   margin: auto;
   background-color: #222;
   padding: 20px;
@@ -95,12 +88,103 @@ h1 {
   box-shadow: 0 4px 8px rgba(255, 204, 0, 0.3);
 }
 
-.movie-details img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 15px;
+.movie-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
 }
 
-.movie-details h2 {
+.movie-header img {
+  width: 200px;
+  border-radius: 10px;
+}
+
+.movie-info {
+  flex: 1;
+}
+
+.movie-info h2 {
   color: #ffcc00;
+}
+
+.movie-info p {
+  font-size: 1rem;
+  color: #bbbbbb;
+}
+
+.trailer-button {
+  display: inline-block;
+  margin-top: 10px;
+  background: #ffcc00;
+  color: black;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.trailer-button:hover {
+  background: #e6b800;
+}
+
+.platforms {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.platform-card {
+  flex: 1;
+  min-width: 150px;
+  max-width: 200px;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(255, 204, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.platform-card img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-bottom: 8px;
+}
+
+.platform-card a {
+  color: #ffcc00;
+  text-decoration: none;
+}
+
+.platform-card a:hover {
+  text-decoration: underline;
+}
+
+.back-button {
+  display: block;
+  margin: 20px auto;
+  width: fit-content;
+  background: #ffcc00;
+  color: black;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.back-button:hover {
+  background: #e6b800;
+}
+
+.platform-card img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  margin-bottom: 8px;
 }
