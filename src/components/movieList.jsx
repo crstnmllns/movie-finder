@@ -1,5 +1,5 @@
 import { Row, Col } from "react-bootstrap";
-import MovieCard from "./MovieCard";
+import MovieCard from "./MovieCard.jsx";
 import { useMemo } from "react";
 
 function MovieList({ movies }) {

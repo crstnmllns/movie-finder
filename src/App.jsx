@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
 import { searchMovie } from "./api/streamingApi";
 import { Container } from "react-bootstrap";
-import SearchBar from "./components/SearchBar";
-import MovieList from "./components/MovieList";
+import SearchBar from "./components/SearchBar.jsx";
+import MovieList from "./components/MovieList.jsx";
 import { BrowserRouter as Router, Route, Routes, useLocation, useNavigate } from "react-router-dom";
-import MovieDetails from "./components/MovieDetails";
+import MovieDetails from "./components/MovieDetails.jsx";
 import ErrorBoundary from "./components/ErrorBoundary";
 import "./assets/styles.css";
 

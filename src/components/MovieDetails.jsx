@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getMovieDetails, getPlatforms } from "../api/streamingApi";
+import { getMovieDetails, getPlatforms } from "../api/streamingApi.js";
 import "../assets/styles.css";
 
 function MovieDetails() {
